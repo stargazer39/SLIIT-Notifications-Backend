@@ -4,8 +4,8 @@
   "description": "A webpack template for creating node webapps",
   "main": "dist/index.js",
   "scripts": {
-    "build": "webpack",
-    "start": "./build.sh && node ./dist/app.js",
+    "build": "./build.sh && webpack",
+    "start": "node ./dist/app.js",
     "dev:server": "nodemon --watch src/**/*.ts --exec 'npm run build && npm start'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
