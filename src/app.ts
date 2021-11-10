@@ -61,6 +61,17 @@ app.get("/api/history/:id", async (req, res) => {
     }
 })
 
+app.get("/api/groups",async (req,res) => {
+    try{
+        let conn = SqlConnect.getInstance();
+        let groups = await conn.query({
+            sql: "SELECT * FROM telegram_urls"
+        })
+        res.json(groups);
+    }catch(e){
+        console.log(e);
+    }
+})
 app.get('*', (req,res) =>{
     res.sendFile(path.join(__dirname,"./react-app/build/index.html"));
 });
