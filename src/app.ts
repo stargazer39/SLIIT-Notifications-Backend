@@ -65,7 +65,7 @@ app.get("/api/groups",async (req,res) => {
     try{
         let conn = SqlConnect.getInstance();
         let groups = await conn.query({
-            sql: "SELECT * FROM telegram_urls"
+            sql: "SELECT tu.url, si.name FROM telegram_urls as tu, sites as si WHERE si.id = tu.site_id;"
         })
         res.json(groups);
     }catch(e){
